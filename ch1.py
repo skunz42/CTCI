@@ -48,7 +48,7 @@ def oneAway(str1, str2):
     return retVal
 
 # 1-6
-def stringCompression(str1):
+'''def stringCompression(str1):
     count = {}
     retVal = ""
     newChar = str1[0]
@@ -83,6 +83,29 @@ def stringCompression(str1):
                 index2 -= 1
                 char = str1[index2]
             retVal += str(counter)
+    return retVal
+    '''
+
+def stringCompression(str1):
+    retVal = ""
+    newChar = str1[0]
+    prevChar = str1[0]
+    count = 0
+    for idx, s in enumerate(str1):
+        newChar = s
+        if newChar != prevChar:
+            retVal += prevChar
+            retVal += str(count)
+            count = 1
+        else:
+            count += 1
+
+        if idx == len(str1)-1:
+            retVal += newChar
+            retVal += str(count)
+
+        prevChar = newChar
+
     return retVal
 
 def main():
