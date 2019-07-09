@@ -85,7 +85,7 @@ def oneAway(str1, str2):
             retVal += str(counter)
     return retVal
     '''
-
+# 1-6
 def stringCompression(str1):
     retVal = ""
     newChar = str1[0]
@@ -108,6 +108,30 @@ def stringCompression(str1):
 
     return retVal
 
+#1-7
+def rotateMatrix(n, mat):
+    retMat = [[0]*n for i in range(n)]
+    for i in range(n):
+        for j in range(n):
+            retMat[n-j-1][i] = mat[i][j]
+
+    return retMat
+
+#1-8
+def zmHelper(m, n, s, t, mat):
+    for i in range(m):
+        for j in range(n):
+            if i == s or j == t:
+                mat[i][j] = 0
+
+def zeroMatrix(m, n, mat):
+    for i in range(m):
+        for j in range(n):
+            if mat[i][j] == 0:
+                zmHelper(m, n, i, j, mat)
+
+    return mat
+
 def main():
     # IsUnique Tests
     '''print(isUnique("yuh"))
@@ -125,5 +149,11 @@ def main():
     print(oneAway('eee', 'ppp'))'''
 
     # String Compression Tests
-    print(stringCompression('aabcccccaaa'))
+    # print(stringCompression('aabcccccaaa'))
+
+    # rotateMatrix Tests
+    # print(rotateMatrix(3, [[1, 3, 7], [5, 4, 2], [9, 8, 6]]))
+
+    # zeroMatrix Tests
+    # print(zeroMatrix(2, 3, [[1, 3, 5], [2, 4, 0]]))
 main()
