@@ -10,7 +10,9 @@ def isUnique(str1):
 
 # 1-2
 def checkPermutation(str1, str2):
-    return False
+    sortStr1 = sorted(str1)
+    sortStr2 = sorted(str2)
+    return sortStr1 == sortStr2
 
 # 1-3
 def URLify(str, strLen):
@@ -47,44 +49,6 @@ def oneAway(str1, str2):
 
     return retVal
 
-# 1-6
-'''def stringCompression(str1):
-    count = {}
-    retVal = ""
-    newChar = str1[0]
-    prevChar = str1[0]
-    index = 0
-    for s in str1:
-        newChar = s
-        if s in count:
-            if newChar != prevChar:
-                retVal += prevChar
-                retVal += str(count[prevChar])
-                prevChar = newChar
-            else:
-                count[newChar] += 1
-        else:
-            if newChar != prevChar:
-                retVal += prevChar
-                retVal += str(count[prevChar])
-                prevChar = newChar
-            count[newChar] = 1
-            prevChar = newChar
-
-        index += 1
-        if index == len(str1)-1:
-            last = str1[index]
-            retVal += last
-            counter = 0
-            index2 = index
-            char = last
-            while (char == last):
-                counter += 1
-                index2 -= 1
-                char = str1[index2]
-            retVal += str(counter)
-    return retVal
-    '''
 # 1-6
 def stringCompression(str1):
     retVal = ""
@@ -132,14 +96,24 @@ def zeroMatrix(m, n, mat):
 
     return mat
 
+def swapInPlace(a, b):
+    print(str(a) + " " + str(b))
+    a = a ^ b
+    b = a ^ b
+    a = a ^ b
+    print(str(a) + " " + str(b))
+
 def main():
     # IsUnique Tests
     '''print(isUnique("yuh"))
     print(isUnique("cat"))
-    print(isUnique("wow"))
+    print(isUnique("wow"))'''
+
+    # checkPermutation Tests
+    #print(checkPermutation('dog', 'god'))
 
     # URLify Tests
-    print(URLify("Mr John Smith  ", 13))'''
+    #print(URLify("Mr John Smith  ", 13))'''
 
     # One Away Tests
     '''print(oneAway('pale', 'ple'))
@@ -156,4 +130,7 @@ def main():
 
     # zeroMatrix Tests
     # print(zeroMatrix(2, 3, [[1, 3, 5], [2, 4, 0]]))
+
+    # Swap in Place
+    swapInPlace(2, 7)
 main()
