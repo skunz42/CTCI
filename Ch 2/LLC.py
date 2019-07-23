@@ -42,6 +42,22 @@ class LLC:
 
         self.head = prev
 
+    def palindrome(self):
+        curr = self.head
+        prev = self.head
+
+        while curr != self.tail and prev:
+            if prev.next == self.tail:
+                if curr.data != prev.next.data:
+                    return False
+                self.tail = prev
+                curr = curr.next
+                prev = curr
+            else:
+                prev = prev.next
+
+        return True
+
     def printLL(self):
         curr = self.head
         while curr is not None:
