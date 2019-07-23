@@ -32,6 +32,16 @@ class LLC:
                 prev = curr
                 curr = curr.next
 
+    def reverse(self):
+        prev = None
+        while self.head:
+            curr = self.head
+            self.head = self.head.next
+            curr.next = prev
+            prev = curr
+
+        self.head = prev
+
     def printLL(self):
         curr = self.head
         while curr is not None:
