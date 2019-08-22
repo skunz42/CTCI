@@ -24,7 +24,6 @@ class LLC:
             if curr.data == value:
                 if curr == self.head:
                     self.head = curr.next
-                    #prev = curr
                 else:
                     prev.next = curr.next
                     curr = prev.next
@@ -57,6 +56,18 @@ class LLC:
                 prev = prev.next
 
         return True
+
+    def removeDupes(self):
+        temp = self.head
+        prevSize = 0
+        currSize = 0
+        dupes = set()
+        while temp:
+            if temp.data in dupes:
+                self.remove(temp.data)
+            else:
+                dupes.add(temp.data)
+            temp = temp.next
 
     def printLL(self):
         curr = self.head
