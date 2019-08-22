@@ -69,6 +69,27 @@ class LLC:
                 dupes.add(temp.data)
             temp = temp.next
 
+    def toLast(self, k):
+        len = 0
+        kth = 0
+        temp = self.head
+
+        while temp:
+            len += 1
+            temp = temp.next
+
+        temp = self.head
+
+        if len < k or k < 1:
+            return -1
+        else:
+            while temp:
+                kth += 1
+                if kth == (len-k+1):
+                    return temp.data
+                temp = temp.next
+            return -1
+
     def printLL(self):
         curr = self.head
         while curr is not None:
