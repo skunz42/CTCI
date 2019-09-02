@@ -27,3 +27,10 @@ class Node:
         self.inorder(root.left)
         print(root.data)
         self.inorder(root.right)
+
+    def postorder(self, root):
+        if not root:
+            return
+        print(root.data)
+        self.postorder(root.left)
+        self.postorder(root.right)

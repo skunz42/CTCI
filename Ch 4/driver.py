@@ -7,5 +7,5 @@ def main():
     r.insert(7, r)
     r.insert(1, r)
     r.insert(5, r)
-    r.inorder(r)
+    r.postorder(r)
 main()
