@@ -51,6 +51,13 @@ class Graph:
                     q.put(a)
         return None
 
+    def dfs(self, start):
+        start.color = True
+        print(start.val)
+        for e in start.adjList:
+            if not e.color:
+                self.dfs(e)
+
 def main():
     nodes = [Node(0), Node(1), Node(2), Node(3), Node(4)]
     edges = [Edge(nodes[0], nodes[1]), Edge(nodes[0], nodes[2]), Edge(nodes[2], nodes[1]),
@@ -58,7 +65,7 @@ def main():
 
     g = Graph(nodes, edges)
     g.calcAdj()
-    ret = g.bfs(nodes[0], nodes[3])
+    '''ret = g.bfs(nodes[0], nodes[3])
     retArr = []
     while ret:
         retArr.append(ret)
@@ -68,6 +75,8 @@ def main():
         if i == 0:
             print(retArr[i].getVal())
         else:
-            print(str(retArr[i].getVal()) + " => ", end='')
+            print(str(retArr[i].getVal()) + " => ", end='')'''
+
+    g.dfs(nodes[1])
 
 main()
