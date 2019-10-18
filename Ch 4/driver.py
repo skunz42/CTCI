@@ -11,7 +11,4 @@ def main():
     t.insert(1, rt)
     t.insert(5, rt)
     t.preorder(rt)
-    t.delete(3, rt)
-    print("------------")
-    t.preorder(rt)
 main()
